@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rubic Cube</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Buttons to select faces -->
+    <div class="buttons">
+      Perspectives :
+      <button onclick="rotateCubeTo('front')">F : Front</button>
+      <button onclick="rotateCubeTo('back')">B : Back</button>
+      <button onclick="rotateCubeTo('left')">L : Left</button>
+      <button onclick="rotateCubeTo('right')">R : Right</button>
+      <button onclick="rotateCubeTo('top')">T : Top</button>
+      <button onclick="rotateCubeTo('bottom')">Bot : Bottom</button>
+      <button onclick="resumeAnimation()">Resume Animation</button>
+    </div>
+    <div class="cube" id="cube">
+      <div class="front face">
+        <div class="row row-1">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-2">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected>F</option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-3">
+          <select id="colorPicker" name="color" id="color-select">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color" id="color-select">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color" id="color-select">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="back face">
+        <div class="row row-1">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-2">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected>B</option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-3">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="left face">
+        <div class="row row-1">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-2">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected>L</option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-3">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="right face">
+        <div class="row row-1">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-2">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected>R</option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-3">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="top face">
+        <div class="row row-1">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-2">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected>T</option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-3">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="bottom face">
+        <div class="row row-1">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-2">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected>Bot</option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+        <div class="row row-3">
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+          <select id="colorPicker" name="color">
+            <option value="" disabled selected></option>
+
+            <option
+              value="blue"
+              style="background-color: #87ceeb; color: #2196f3"
+            >
+              Blue
+            </option>
+            <option
+              value="red"
+              style="background-color: #ffc5c5; color: #ff3737"
+            >
+              Red
+            </option>
+            <option
+              value="yellow"
+              style="background-color: #f9e9c5; color: #f2c464"
+            >
+              Yellow
+            </option>
+            <option
+              value="green"
+              style="background-color: #c6e2b5; color: #34c759"
+            >
+              Green
+            </option>
+            <option
+              value="white"
+              style="background-color: #ffffff; color: #959595"
+            >
+              White
+            </option>
+            <option
+              value="black"
+              style="color: #f5f5f5; background-color: #333333"
+            >
+              Black
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

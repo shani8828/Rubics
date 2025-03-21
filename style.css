@@ -1,0 +1,181 @@
+:root {
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS for a single cell */
+
+#colorPicker {
+    width: 50px;
+    /* Set a fixed width */
+    height: 50px;
+    /* padding: 4px; */
+    font-size: 14px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 9px;
+    /* color: #333; */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#colorPicker option {
+    /* padding: 1px 2px; */
+    /* font-size: 16px; */
+    /* color: #fff; */
+    border-radius: 10px;
+}
+
+#colorPicker:focus {
+    background-color: #e0e0e0;
+    border-color: #455a64;
+}
+
+/* Style for the disabled option (placeholder) */
+#colorPicker option[disabled] {
+    /* color: #000; */
+    /* Greyed-out text for the placeholder */
+    background-color: #ccc;
+    /* Lighter background */
+    /* border-radius: 8px; */
+    /* border: 1px solid #455a64; */
+}
+
+/* Add hover effect for options */
+#colorPicker option:hover {
+    background-color: #455a64;
+    color: #000;
+    /* opacity: 0.8; */
+}
+
+/* Now Css Starting for better cell and faces */
+/* .cube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+} */
+
+.face {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 2px;
+    /* background-color: #455a64; */
+    /* Default background color for faces */
+    border: 1px solid #ccc;
+    /* Optional: Add borders for better visibility */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Adds shadow around the cube for better depth perception */
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Now for making 3D Rubics Cube */
+/* Set up the perspective and the container for the 3D space */
+.cube {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    transform-style: preserve-3d;
+    /* Ensures children are positioned in 3D space */
+    transform: rotateX(-30deg) rotateY(45deg);
+    /*Optional: rotate the cube for a better view */
+    animation: rotateCube 8s infinite linear;
+    /* Optional: Add an animation to rotate the cube */
+    animation-play-state: running;
+    /* By default, the animation is running */
+    transition: transform 0.1s ease-out;
+    /* Smooth transition for manual rotation */
+
+
+}
+
+/* Stop animation when the cube is hovered */
+.cube:hover {
+    animation-play-state: paused;
+    /* Pause the animation when hovering */
+}
+
+/* Positioning each face in 3D space using transforms */
+.front {
+    transform: translateZ(85px);
+    /* Move the front face forward */
+
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(85px);
+    /* Move the back face to the other side */
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(85px);
+    /* Position the left face */
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(85px);
+    /* Position the right face */
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(85px);
+    /* Position the top face */
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(85px);
+    /* Position the bottom face */
+}
+
+/* Optional: Add a rotating animation to the cube */
+@keyframes rotateCube {
+    from {
+        transform: rotateX(-30deg) rotateY(45deg);
+    }
+
+    to {
+        transform: rotateX(-30deg) rotateY(405deg);
+        /* Full rotation */
+    }
+}
+
+/* Button Styles */
+.buttons {
+    /* border: 1px solid #ccc; */
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+.buttons button {
+    padding: 4px 8px;
+    /* font-size: 14px; */
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.buttons button:hover {
+    background-color: #455a64;
+    color: #fff;
+}
